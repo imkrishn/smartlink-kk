@@ -1,0 +1,30 @@
+DESCRIPTION >
+  Link click analytics by country for a specific link
+
+NODE country_click_query
+SQL >
+  %SELECT
+    CASE
+      WHEN location_country != '' THEN location_country
+      ELSE 'Unknown'
+    END AS country,
+    count() AS total_clicks,
+    uniq(profileUserId) AS unique_users,
+    round(count() * 100.0 / sum(count()) OVER (), 2) AS percentage
+  FROM click_events
+  WHERE
+    profileUserId = {{ String(profileUserId) }}
+    AND linkId = {{ String(linkId) }}
+    {% if defined(start_date) %}
+      AND toDate(timestamp) >= {{ Date(start_date) }}
+    {% else %}
+      AND toDate(timestamp) >= today() - 30
+    {% end %}
+    {% if defined(end_date) %}
+      AND toDate(timestamp) <= {{ Date(end_date) }}
+    {% else %}
+      AND toDate(timestamp) <= today()
+    {% end %}
+  GROUP BY country
+
+TYPE endpoint

@@ -1,0 +1,13 @@
+{
+  "timestamp": "2025-07-31T14:00:00Z",
+  "link_id": "abc123",
+  "user_id": "user789",
+  "clicked_by": "user456",
+  "country": "IN",
+  "city": "Mumbai",
+  "device_type": "Mobile",
+  "os": "Android",
+  "browser": "Chrome",
+  "referrer": "https://twitter.com",
+  "ip": "103.84.23.51"
+}
