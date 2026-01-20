@@ -1,4 +1,4 @@
-# 🔗 SmartLink – Smart Link Management Dashboard
+# 🔗 SmartLink – Smart Link Management Dashboard. (Like Linktree)
 
 SmartLink is a **modern link management and organization platform** that allows users to **create, organize, update, and manage links** in a visually structured dashboard. It is designed for **productivity, creators, developers, and teams** who want full control over their important links.
 
