@@ -1,0 +1,32 @@
+DESCRIPTION >
+  Link click analytics for a profile with time filter (daily breakdown)
+
+NODE link_analytics_query
+SQL >
+  %SELECT
+    toDate(timestamp) AS date,
+    linkTitle,
+    linkUrl,
+    count() AS total_clicks,
+    uniq(profileUserId) AS unique_users,
+    uniq(location_country) AS countries_reached
+  FROM click_events
+  WHERE
+    profileUserId = {{ String(profileUserId) }}
+    {% if defined(start_date) %}
+      AND toDate(timestamp) >= {{ Date(start_date) }}
+    {% else %}
+      AND toDate(timestamp) >= today() - 30
+    {% end %}
+    {% if defined(end_date) %}
+      AND toDate(timestamp) <= {{ Date(end_date) }}
+    {% else %}
+      AND toDate(timestamp) <= today()
+    {% end %}
+    {% if defined(linkId) %}
+      AND linkId = {{ String(linkId) }}
+    {% end %}
+  GROUP BY date, linkTitle, linkUrl
+  ORDER BY date DESC, total_clicks DESC
+
+TYPE endpoint

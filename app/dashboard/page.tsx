@@ -1,6 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import Analytics from "@/components/Analytics";
+
 import Protect from "@/components/Protect";
 import { getLoggedInUser } from "@/lib/getLoggedInUser";
 import React from "react";

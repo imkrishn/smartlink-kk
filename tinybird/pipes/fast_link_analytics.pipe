@@ -1,0 +1,33 @@
+DESCRIPTION > 
+    Fast link analytics using materialized daily performance data
+
+NODE fast_link_analytics_node
+
+SQL > 
+    %SELECT
+        date,
+        linkTitle,
+        linkUrl,
+        countMerge(total_clicks) AS total_clicks,
+        uniqMerge(unique_users) AS unique_users,
+        uniqMerge(unique_countries) AS countries_reached
+    FROM daily_link_metrics_materialized
+    WHERE
+        profileUserId = {{ String(profileUserId) }}
+        {% if defined("start_date") %}
+            AND date >= {{ Date(start_date) }}
+        {% else %}
+            AND date >= today() - 30
+        {% end %}
+        {% if defined("end_date") %}
+            AND date <= {{ Date(end_date) }}
+        {% else %}
+            AND date <= today()
+        {% end %}
+        {% if defined("linkId") %}
+            AND linkId = {{ String(linkId) }}
+        {% end %}
+    GROUP BY date, linkId, linkTitle, linkUrl
+    ORDER BY date DESC, total_clicks DESC
+
+TYPE endpoint

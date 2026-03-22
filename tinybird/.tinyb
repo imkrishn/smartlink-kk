@@ -1,0 +1,14 @@
+{
+    "host": "https://api.europe-west2.gcp.tinybird.co",
+    "id": "9d8a2412-0482-45fe-8ed5-e967e83a9b07",
+    "name": "linkhub_369",
+    "scope": "user",
+    "token": "p.eyJ1IjogIjlkOGEyNDEyLTA0ODItNDVmZS04ZWQ1LWU5NjdlODNhOWIwNyIsICJpZCI6ICJkMWZkMWQ3MC02NGQ3LTRjNzktYTRmMS0xYmU3OTAxMGM1MWEiLCAiaG9zdCI6ICJnY3AtZXVyb3BlLXdlc3QyIn0.oTh-ogOKBGzoqVr5FBgBFiTUgHE-wg4CKU5bab5Bizk",
+    "tokens": {
+        "https://api.europe-west2.gcp.tinybird.co": "p.eyJ1IjogIjlkOGEyNDEyLTA0ODItNDVmZS04ZWQ1LWU5NjdlODNhOWIwNyIsICJpZCI6ICJkMWZkMWQ3MC02NGQ3LTRjNzktYTRmMS0xYmU3OTAxMGM1MWEiLCAiaG9zdCI6ICJnY3AtZXVyb3BlLXdlc3QyIn0.oTh-ogOKBGzoqVr5FBgBFiTUgHE-wg4CKU5bab5Bizk"
+    },
+    "user_email": "963gurudev@gmail.com",
+    "user_id": "ad933efa-b4be-43f5-975f-f6725eaaea53",
+    "user_token": "p.eyJ1IjogImFkOTMzZWZhLWI0YmUtNDNmNS05NzVmLWY2NzI1ZWFhZWE1MyIsICJpZCI6ICIwNzIxZGQ5Zi01ZmI3LTQxODEtODhmNy04ZGMyYzgwYjRlNTQiLCAiaG9zdCI6ICJnY3AtZXVyb3BlLXdlc3QyIn0.Il9ztK40KEzH15fiU2fsGJ8_NbJ69z4n2jwTEUnjWxw",
+    "version": "0.0.1.dev269"
+}

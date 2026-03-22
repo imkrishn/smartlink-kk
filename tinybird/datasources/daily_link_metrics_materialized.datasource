@@ -1,0 +1,20 @@
+DESCRIPTION > 
+  Materialized daily link performance data with pre-aggregated metrics
+
+SCHEMA > 
+  `date` Date,
+  `profileUserId` String,
+  `profileUsername` String,
+  `linkId` String,
+  `linkTitle` String,
+  `linkUrl` String,
+  `total_clicks` AggregateFunction(count, UInt64),
+  `unique_users` AggregateFunction(uniq, String),
+  `unique_countries` AggregateFunction(uniq, String),
+  `unique_referrers` AggregateFunction(uniq, String),
+  `first_click_time` AggregateFunction(min, DateTime),
+  `last_click_time` AggregateFunction(max, DateTime)
+
+ENGINE "AggregatingMergeTree"
+ENGINE_PARTITION_KEY "toYYYYMM(date)"
+ENGINE_SORTING_KEY "date, profileUserId, linkId"

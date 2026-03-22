@@ -1,0 +1,22 @@
+DESCRIPTION >
+  Smartlink click tracking with insights metadata.
+
+SCHEMA >
+  `timestamp` DateTime `json:$.timestamp`,
+  `profileUsername` String `json:$.profileUsername`,
+  `profileUserId` String `json:$.profileUserId`,
+  `linkId` String `json:$.linkId`,
+  `linkTitle` String `json:$.linkTitle`,
+  `linkUrl` String `json:$.linkUrl`,
+  `userAgent` String `json:$.userAgent`,
+  `clicked_by` String `json:$.clicked_by`,
+  `referrer` String `json:$.referrer`,
+  `location_country` String `json:$.location_country`,
+  `location_region` String `json:$.location_region`,
+  `location_city` String `json:$.location_city`,
+  `location_latitude` String `json:$.location_latitude`,
+  `location_longitude` String `json:$.location_longitude`
+
+ENGINE "MergeTree"
+ENGINE_PARTITION_KEY "toYYYYMM(timestamp)"
+ENGINE_SORTING_KEY "timestamp, profileUserId, linkId"
